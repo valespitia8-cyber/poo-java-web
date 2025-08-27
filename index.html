@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>POO en Java</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+    nav { background: #222; padding: 10px; text-align: center; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a.active, nav a:hover { color: #22d3ee; }
+    .container { padding: 20px; max-width: 900px; margin: auto; }
+    h1 { color: #111; }
+    .card { background: #fff; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #22d3ee; color: #fff; border-radius: 5px; text-decoration: none; }
+    .btn:hover { background: #0ea5e9; }
+    footer { text-align: center; padding: 15px; background: #222; color: #fff; margin-top: 30px; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#inicio" class="active">Inicio</a>
+  <a href="#estructuras">Estructuras</a>
+  <a href="#clases">Clases</a>
+  <a href="#pilares">Pilares</a>
+</nav>
+
+<div class="container" id="inicio">
+  <h1>Programación Orientada a Objetos en Java</h1>
+  <p>Sitio educativo con definiciones, ejemplos y diagramas de POO en Java.</p>
+
+  <div class="card" id="estructuras">
+    <h2>Estructuras de Control</h2>
+    <p>Ejemplo de <strong>if-else</strong>:</p>
+    <pre><code>int x = 10;
+if(x > 5){
+    System.out.println("x es mayor que 5");
+} else {
+    System.out.println("x es menor o igual a 5");
+}</code></pre>
+
+    <p>Ejemplo de <strong>for</strong>:</p>
+    <pre><code>for(int i = 0; i < 5; i++){
+    System.out.println("Número: " + i);
+}</code></pre>
+  </div>
+
+  <div class="card" id="clases">
+    <h2>Clases y Objetos</h2>
+    <p>Ejemplo básico de clase:</p>
+    <pre><code>class Persona {
+    String nombre;
+    int edad;
+
+    void saludar(){
+        System.out.println("Hola, soy " + nombre);
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Persona p = new Persona();
+        p.nombre = "Ana";
+        p.edad = 20;
+        p.saludar();
+    }
+}</code></pre>
+  </div>
+
+  <div class="card" id="pilares">
+    <h2>Pilares de la POO</h2>
+
+    <h3>Encapsulamiento</h3>
+    <pre><code>class Cuenta {
+    private double saldo;
+    public void depositar(double monto){ saldo += monto; }
+    public double getSaldo(){ return saldo; }
+}</code></pre>
+
+    <h3>Herencia</h3>
+    <pre><code>class Animal {
+    void sonido(){ System.out.println("Sonido genérico"); }
+}
+class Perro extends Animal {
+    void sonido(){ System.out.println("Guau guau"); }
+}</code></pre>
+
+    <h3>Polimorfismo</h3>
+    <pre><code>Animal a = new Perro();
+a.sonido(); // Imprime "Guau guau"</code></pre>
+
+    <h3>Abstracción</h3>
+    <pre><code>abstract class Figura {
+    abstract double area();
+}
+class Circulo extends Figura {
+    double radio;
+    Circulo(double r){ radio = r; }
+    double area(){ return Math.PI * radio * radio; }
+}</code></pre>
+  </div>
+</div>
+
+<footer>© 2025 POO en Java</footer>
+</body>
+</html>
