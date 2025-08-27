@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <title>POO en Java</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-    nav { background: #222; padding: 10px; text-align: center; }
-    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a.active, nav a:hover { color: #22d3ee; }
-    .container { padding: 20px; max-width: 900px; margin: auto; }
-    h1 { color: #111; }
-    .card { background: #fff; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #22d3ee; color: #fff; border-radius: 5px; text-decoration: none; }
-    .btn:hover { background: #0ea5e9; }
-    footer { text-align: center; padding: 15px; background: #222; color: #fff; margin-top: 30px; }
-    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f0f9ff; color: #333; }
+    nav { background: linear-gradient(90deg, #0f172a, #1e3a8a); padding: 15px; text-align: center; }
+    nav a { color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    nav a.active, nav a:hover { color: #38bdf8; }
+    .container { padding: 20px; max-width: 1000px; margin: auto; }
+    h1 { color: #0f172a; text-align: center; margin-bottom: 10px; }
+    .card { background: #fff; padding: 25px; margin: 25px 0; border-radius: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+    .card h2 { color: #1e3a8a; }
+    .definition { background: #e0f2fe; padding: 12px; border-left: 5px solid #0284c7; border-radius: 8px; margin-bottom: 15px; }
+    .btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: #0284c7; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s; }
+    .btn:hover { background: #0369a1; }
+    footer { text-align: center; padding: 15px; background: #0f172a; color: #fff; margin-top: 30px; }
+    pre { background: #1e293b; color: #f8fafc; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 14px; }
+    code { font-family: Consolas, monospace; }
   </style>
 </head>
 <body>
@@ -28,11 +31,14 @@
 
 <div class="container" id="inicio">
   <h1>Programación Orientada a Objetos en Java</h1>
-  <p>Sitio educativo con definiciones, ejemplos y diagramas de POO en Java.</p>
+  <p style="text-align:center;">Sitio educativo con <strong>definiciones</strong>, <strong>ejemplos</strong> y <strong>diagramas</strong> de POO en Java.</p>
 
   <div class="card" id="estructuras">
     <h2>Estructuras de Control</h2>
-    <p>Ejemplo de <strong>if-else</strong>:</p>
+
+    <div class="definition">
+      <strong>if-else:</strong> Es una estructura condicional que permite ejecutar un bloque de código si la condición es verdadera y otro bloque si es falsa.
+    </div>
     <pre><code>int x = 10;
 if(x > 5){
     System.out.println("x es mayor que 5");
@@ -40,7 +46,9 @@ if(x > 5){
     System.out.println("x es menor o igual a 5");
 }</code></pre>
 
-    <p>Ejemplo de <strong>for</strong>:</p>
+    <div class="definition">
+      <strong>for:</strong> Es un ciclo que repite un bloque de código un número determinado de veces, muy útil para recorrer rangos o colecciones.
+    </div>
     <pre><code>for(int i = 0; i < 5; i++){
     System.out.println("Número: " + i);
 }</code></pre>
@@ -48,7 +56,10 @@ if(x > 5){
 
   <div class="card" id="clases">
     <h2>Clases y Objetos</h2>
-    <p>Ejemplo básico de clase:</p>
+    <div class="definition">
+      <strong>Clase:</strong> Es una plantilla que define atributos y métodos.  
+      <strong>Objeto:</strong> Es una instancia de una clase, con valores propios.
+    </div>
     <pre><code>class Persona {
     String nombre;
     int edad;
@@ -71,14 +82,14 @@ public class Main {
   <div class="card" id="pilares">
     <h2>Pilares de la POO</h2>
 
-    <h3>Encapsulamiento</h3>
+    <div class="definition"><strong>Encapsulamiento:</strong> Oculta los datos internos de un objeto y permite acceder a ellos solo mediante métodos públicos.</div>
     <pre><code>class Cuenta {
     private double saldo;
     public void depositar(double monto){ saldo += monto; }
     public double getSaldo(){ return saldo; }
 }</code></pre>
 
-    <h3>Herencia</h3>
+    <div class="definition"><strong>Herencia:</strong> Permite crear nuevas clases basadas en clases existentes, reutilizando código.</div>
     <pre><code>class Animal {
     void sonido(){ System.out.println("Sonido genérico"); }
 }
@@ -86,11 +97,11 @@ class Perro extends Animal {
     void sonido(){ System.out.println("Guau guau"); }
 }</code></pre>
 
-    <h3>Polimorfismo</h3>
+    <div class="definition"><strong>Polimorfismo:</strong> Permite que un objeto adopte diferentes formas, usando el mismo método con comportamientos distintos.</div>
     <pre><code>Animal a = new Perro();
 a.sonido(); // Imprime "Guau guau"</code></pre>
 
-    <h3>Abstracción</h3>
+    <div class="definition"><strong>Abstracción:</strong> Permite definir métodos sin implementación en clases abstractas, que serán desarrollados en clases hijas.</div>
     <pre><code>abstract class Figura {
     abstract double area();
 }
