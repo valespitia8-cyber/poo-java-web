@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>POO en Java - Completo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f6fbff; --card:#ffffff; --muted:#6b7280;
+      --accent1:#0ea5e9; --accent2:#7c3aed; --accent3:#f97316;
+      --code-bg:#0b1220; --code-fg:#e6eef6;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif; margin:0; background:linear-gradient(180deg,var(--bg),#eef6ff); color:#0f172a;}
+    header{background:linear-gradient(90deg,var(--accent2),var(--accent1)); color:white; padding:28px 16px; text-align:center;}
+    header h1{margin:0; font-size:34px; letter-spacing:0.5px}
+    header p{margin:6px 0 0; opacity:0.95}
+    nav{display:flex; gap:12px; justify-content:center; padding:12px; background:rgba(255,255,255,0.06);}
+    nav a{color:white; text-decoration:none; padding:8px 14px; border-radius:8px; font-weight:600; background:rgba(0,0,0,0.08)}
+    .container{max-width:1100px; margin:22px auto; padding:0 18px;}
+    .grid{display:grid; grid-template-columns:1fr; gap:18px;}
+    .card{background:var(--card); border-radius:14px; padding:18px; box-shadow:0 8px 20px rgba(15,23,42,0.06);}
+    .card h2{color:var(--accent2); margin-top:0}
+    .definition{background:linear-gradient(90deg,#eef8ff,#f6f0ff); border-left:6px solid var(--accent1); padding:10px 12px; border-radius:8px; margin:10px 0;}
+    pre{background:var(--code-bg); color:var(--code-fg); padding:14px; border-radius:10px; overflow:auto; font-family:Consolas,monospace; font-size:13px; line-height:1.4;}
+    code{font-family:Consolas,monospace;}
+    .diagram{display:flex; justify-content:center; margin:12px 0;}
+    .small{font-size:14px; color:var(--muted)}
+    .row{display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap;}
+    .half{flex:1 1 48%; min-width:280px;}
+    footer{padding:18px; text-align:center; color:var(--muted); font-size:14px; margin-top:20px}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:linear-gradient(90deg,var(--accent1),var(--accent3)); color:white; font-weight:700; font-size:13px}
+    /* responsive */
+    @media (max-width:800px){ .row{flex-direction:column} .half{flex-basis:100%} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>POO en Java — Guía completa</h1>
+    <p>Explicaciones, ejemplos y diagramas. Color y diseño moderno para tu página.</p>
+  </header>
+
+  <nav aria-label="Navegación">
+    <a href="#seccion1">Estructuras</a>
+    <a href="#seccion2">Clases y Métodos</a>
+    <a href="#seccion3">Pilares</a>
+  </nav>
+
+  <main class="container">
+    <!-- Sección 1 -->
+    <section id="seccion1" class="card">
+      <h2>Sección 1: Estructuras de Control</h2>
+      <p class="small">En esta sección se explican los bucles más comunes en Java: <strong>while</strong>, <strong>do-while</strong> y <strong>for</strong>.</p>
+
+      <div class="row">
+        <div class="half">
+          <h3>Bucle <span class="pill">while</span></h3>
+          <div class="definition"><strong>Definición:</strong> El bucle <code>while</code> ejecuta repetidamente un bloque mientras la condición sea verdadera. Se usa cuando no sabemos cuántas iteraciones serán necesarias de antemano.</div>
+          <p><strong>Sintaxis:</strong></p>
+          <pre><code>while (condición) {
+    // código a repetir
+}</code></pre>
+          <p><strong>Ejemplo práctico (contar de 1 a 10):</strong></p>
+          <pre><code>int i = 1;
+while (i <= 10) {
+    System.out.println(i);
+    i++;
+}</code></pre>
+        </div>
+        <div class="half">
+          <h4 class="small">Diagrama de flujo (while)</h4>
+          <div class="diagram" aria-hidden="true">
+            <!-- SVG de diagrama sencillo -->
+            <svg width="280" height="200" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama while">
+              <rect x="70" y="10" width="140" height="36" rx="8" fill="#dbeafe" stroke="#0369a1"/>
+              <text x="140" y="33" text-anchor="middle" font-size="12" fill="#0f172a">Inicio / Inicializar</text>
+
+              <rect x="70" y="60" width="140" height="46" rx="6" fill="#ecfccb" stroke="#65a30d"/>
+              <text x="140" y="85" text-anchor="middle" font-size="12" fill="#0f172a">Evaluar condición</text>
+
+              <rect x="40" y="120" width="200" height="36" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+              <text x="140" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Ejecutar cuerpo del bucle</text>
+
+              <!-- flechas -->
+              <line x1="140" y1="46" x2="140" y2="60" stroke="#94a3b8" stroke-width="2" marker-end="url(#end)"/>
+              <line x1="190" y1="106" x2="230" y2="106" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="230" y1="106" x2="230" y2="20" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="230" y1="20" x2="190" y2="20" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="190" y1="20" x2="190" y2="46" stroke="#94a3b8" stroke-width="2"/>
+
+              <defs><marker id="end" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#94a3b8"/></marker></defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="half">
+          <h3>Bucle <span class="pill">do-while</span></h3>
+          <div class="definition"><strong>Definición:</strong> Similar a <code>while</code>, pero garantiza que el bloque se ejecute al menos una vez porque la condición se evalúa al final.</div>
+          <p><strong>Sintaxis:</strong></p>
+          <pre><code>do {
+    // código a ejecutar
+} while (condición);</code></pre>
+          <p><strong>Ejemplo práctico (menú simple):</strong></p>
+          <pre><code>import java.util.Scanner;
+
+Scanner sc = new Scanner(System.in);
+int opcion;
+do {
+    System.out.println("1) Saludar\n2) Sumar\n3) Salir");
+    opcion = sc.nextInt();
+    switch(opcion){
+        case 1: System.out.println("¡Hola!"); break;
+        case 2: System.out.println("2 + 2 = " + (2+2)); break;
+    }
+} while(opcion != 3);
+sc.close();</code></pre>
+        </div>
+        <div class="half">
+          <h4 class="small">Diagrama de flujo (do-while)</h4>
+          <div class="diagram" aria-hidden="true">
+            <svg width="280" height="200" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+              <rect x="60" y="10" width="160" height="40" rx="8" fill="#fff7ed" stroke="#fb923c"/>
+              <text x="140" y="33" text-anchor="middle" font-size="12" fill="#0f172a">Ejecutar cuerpo</text>
+
+              <rect x="70" y="70" width="140" height="46" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+              <text x="140" y="95" text-anchor="middle" font-size="12" fill="#0f172a">Evaluar condición</text>
+
+              <line x1="140" y1="50" x2="140" y2="70" stroke="#94a3b8" stroke-width="2" marker-end="url(#end2)"/>
+              <line x1="190" y1="96" x2="230" y2="96" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="230" y1="96" x2="230" y2="20" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="230" y1="20" x2="190" y2="20" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="190" y1="20" x2="190" y2="50" stroke="#94a3b8" stroke-width="2"/>
+              <defs><marker id="end2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#94a3b8"/></marker></defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div>
+        <h3>Bucle <span class="pill">for</span></h3>
+        <div class="definition"><strong>Definición:</strong> Ideal cuando conoce el número de repeticiones. Contiene inicialización, condición e incremento.</div>
+        <p><strong>Sintaxis:</strong></p>
+        <pre><code>for (inicialización; condición; incremento) {
+    // cuerpo
+}</code></pre>
+        <p><strong>Ejemplo práctico (recorrer un arreglo):</strong></p>
+        <pre><code>String[] nombres = {"Ana","Luis","María"};
+for (int i = 0; i &lt; nombres.length; i++) {
+    System.out.println(nombres[i]);
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- Sección 2 -->
+    <section id="seccion2" class="card">
+      <h2>Sección 2: Clases, Objetos y Métodos</h2>
+      <p class="small">Modelamos el mundo real con clases (plantillas) y objetos (instancias).</p>
+
+      <div class="row">
+        <div class="half">
+          <h3>Clases y Objetos</h3>
+          <div class="definition"><strong>Analogía:</strong> La clase es el molde; los objetos son las galletas. La clase define atributos y comportamientos.</div>
+          <p><strong>Ejemplo práctico (Clase Coche):</strong></p>
+          <pre><code>class Coche {
+    String color;
+    String marca;
+    int velocidad;
+
+    Coche(String color, String marca, int velocidad){
+        this.color = color;
+        this.marca = marca;
+        this.velocidad = velocidad;
+    }
+
+    void acelerar(int aumento){ velocidad += aumento; }
+    void mostrar(){ System.out.println(marca + " " + color + " -> " + velocidad + " km/h"); }
+}
+
+Coche c1 = new Coche("rojo", "Toyota", 0);
+Coche c2 = new Coche("azul", "Honda", 30);
+c1.acelerar(20);
+c1.mostrar();</code></pre>
+        </div>
+
+        <div class="half">
+          <h3>Métodos y Overloading</h3>
+          <div class="definition"><strong>Métodos:</strong> Son funciones dentro de la clase que describen comportamientos. <strong>Overloading:</strong> mismo nombre, diferentes parámetros.</div>
+          <p><strong>Ejemplo (Calculadora):</strong></p>
+          <pre><code>class Calculadora {
+    int sumar(int a, int b){ return a + b; }
+    double sumar(double a, double b){ return a + b; } // sobrecarga
+}</code></pre>
+          <p class="small"><strong>Uso:</strong> La JVM elige el método según los parámetros.</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="half">
+          <h3>Modificador <code>static</code></h3>
+          <div class="definition"><strong>Explicación:</strong> Pertenece a la clase, no a la instancia. Útil para contadores y métodos utilitarios.</div>
+          <pre><code>class EjemploStatic {
+    static int contadorDeInstancias = 0;
+    EjemploStatic(){ contadorDeInstancias++; }
+    static int obtenerContador(){ return contadorDeInstancias; }
+}</code></pre>
+        </div>
+        <div class="half">
+          <h3>Clases Locales (Local Classes)</h3>
+          <div class="definition"><strong>Definición:</strong> Clases definidas dentro de un método. Su alcance es local al bloque donde están definidas.</div>
+          <pre><code>void metodoEjemplo() {
+    class Mensajero {
+        void enviar(String m){ System.out.println("Enviar: " + m); }
+    }
+    Mensajero ms = new Mensajero();
+    ms.enviar("Hola desde clase local");
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 3 -->
+    <section id="seccion3" class="card">
+      <h2>Sección 3: Pilares y Conceptos Avanzados</h2>
+      <p class="small">Principios para un diseño robusto y modular.</p>
+
+      <div class="row">
+        <div class="half">
+          <h3>Encapsulamiento</h3>
+          <div class="definition"><strong>Definición:</strong> Ocultar el estado interno y exponer operaciones seguras (métodos).</div>
+          <pre><code>class CuentaBancaria {
+    private double saldo;
+
+    public void depositar(double monto){ if(monto > 0) saldo += monto; }
+    public boolean retirar(double monto){
+        if(monto &lt;= saldo){ saldo -= monto; return true; }
+        return false;
+    }
+    public double getSaldo(){ return saldo; }
+}</code></pre>
+        </div>
+
+        <div class="half">
+          <h3>Composición (has-a)</h3>
+          <div class="definition"><strong>Definición:</strong> Un objeto está formado por otros objetos.</div>
+          <p><strong>Ejemplo práctico:</strong></p>
+          <pre><code>class Motor { int potencia; Motor(int p){ potencia = p; } }
+class Coche {
+    Motor motor;
+    Coche(Motor m){ this.motor = m; }
+}</code></pre>
+          <p class="small">Diagrama UML simple:</p>
+          <div class="diagram">
+            <svg width="320" height="140" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+              <!-- Motor -->
+              <rect x="10" y="10" width="120" height="60" rx="6" fill="#f0f9ff" stroke="#0369a1"/>
+              <text x="70" y="30" text-anchor="middle" font-size="12" fill="#0f172a">Motor</text>
+              <text x="20" y="52" font-size="11" fill="#0f172a">- potencia: int</text>
+              <!-- Coche -->
+              <rect x="190" y="10" width="120" height="80" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+              <text x="250" y="30" text-anchor="middle" font-size="12" fill="#0f172a">Coche</text>
+              <text x="200" y="52" font-size="11" fill="#0f172a">- motor: Motor</text>
+              <text x="200" y="68" font-size="11" fill="#0f172a">- marca: String</text>
+              <!-- relación -->
+              <line x1="130" y1="40" x2="190" y2="40" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/></marker></defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="half">
+          <h3>Delegación</h3>
+          <div class="definition"><strong>Definición:</strong> Un objeto delega tareas a otro que tiene la responsabilidad especializada.</div>
+          <pre><code>class Impresora {
+    void imprimir(String texto){ System.out.println("Imprimiendo: " + texto); }
+}
+class Gerente {
+    Impresora impresora = new Impresora();
+    void imprimirReporte(){ impresora.imprimir("Reporte ejecutivo"); }
+}</code></pre>
+        </div>
+        <div class="half">
+          <h3>Clases Envoltorio (Wrapper Classes)</h3>
+          <div class="definition"><strong>Definición:</strong> Tipos de objeto que envuelven tipos primitivos (Integer, Double...). Útiles en colecciones y para métodos genéricos.</div>
+          <pre><code>// Autoboxing y unboxing
+int n = 5;
+Integer N = n; // autoboxing
+int m = N;     // unboxing
+
+// Usando en colecciones
+java.util.ArrayList&lt;Integer&gt; lista = new java.util.ArrayList&lt;&gt;();
+lista.add(10); // autoboxing</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <footer class="card" style="text-align:center">
+      <p style="margin:6px 0"><strong>© 2025 POO en Java</strong> — Web generada con ejemplos y diagramas SVG</p>
+      <p class="small">Sube este <code>index.html</code> a la raíz del repositorio (rama <code>main</code>) para que GitHub Pages lo muestre.</p>
+    </footer>
+  </main>
+</body>
+</html>
